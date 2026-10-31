@@ -9,8 +9,9 @@
 3. 友達はニックネームを登録してクイズに回答 → ホストとの相性が表示される
 4. ホストの結果画面には、回答済みの友達の相性ランキングが表示される
 
+URL は `/quiz/?room=部屋ID&p_id=プレイヤーID` の形です。
 部屋IDは推測されにくい英数字10文字のランダム文字列です（`utils/roomId.js`）。
-「自分が誰か」は URL の `?p_id=` で引き継いでいます。
+GitHub Pages で動かすため、サーバーを使わない静的サイト（static export）としてビルドしています。
 
 ## セットアップ
 
@@ -40,3 +41,17 @@ npm run dev
 ```
 
 http://localhost:3000 を開きます。
+
+## GitHub Pages への公開
+
+`master` ブランチに push すると、`.github/workflows/deploy-pages.yml` が自動でビルドして公開します。
+公開URL: https://aiueoaiueo-zzz.github.io/poke-shindan/
+
+初回だけ、GitHub のリポジトリ設定で次の2つを行ってください。
+
+1. **Settings → Pages → Build and deployment → Source** を「**GitHub Actions**」にする
+2. **Settings → Secrets and variables → Actions → Variables タブ → New repository variable** で次の2つを登録する
+   - `NEXT_PUBLIC_SUPABASE_URL`
+   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+
+（anon key はもともとブラウザに配られる公開前提のキーです。データの保護は Supabase の RLS で行ってください）

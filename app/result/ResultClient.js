@@ -1,19 +1,20 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useParams, useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
-import { supabase } from '../../../../utils/supabase';
-import { getRandomPokemonsByType, checkCompatibility } from '../../../../utils/pokemonLogic';
+import { supabase } from '../../utils/supabase';
+import { getRandomPokemonsByType, checkCompatibility } from '../../utils/pokemonLogic';
 // 📋 追加した性格解説文データをインポート
-import { TYPE_DESCRIPTIONS } from '../../../../constants/descriptions';
-import { isValidRoomId } from '../../../../utils/roomId';
+import { TYPE_DESCRIPTIONS } from '../../constants/descriptions';
+import { isValidRoomId } from '../../utils/roomId';
 
 export default function ResultClient() {
-  const params = useParams();
-  const roomId = params.id;
-  // 🎯 「自分が誰か」はURLの ?p_id=xxx で判断する（クイズ画面から引き継がれる）
-  const urlPlayerId = useSearchParams().get('p_id');
+  const searchParams = useSearchParams();
+  // 部屋IDはURLの「?room=xxx」で受け取る
+  const roomId = searchParams.get('room');
+  // 🎯 「自分が誰か」はURLの &p_id=xxx で判断する（クイズ画面から引き継がれる）
+  const urlPlayerId = searchParams.get('p_id');
 
   const [myPlayer, setMyPlayer] = useState(null); // 画面を見ている「自分」のデータ
   const [hostPlayer, setHostPlayer] = useState(null); // 部屋を作った「ホスト」のデータ
@@ -86,7 +87,7 @@ export default function ResultClient() {
           <p style={{ color: '#666' }}>
             {hostPlayer ? `${hostPlayer.name}さんの部屋で、まずは診断に答えてみよう！` : 'お部屋が見つかりませんでした。'}
           </p>
-          <Link href={hostPlayer ? `/room/${roomId}/quiz` : '/'} role="button">
+          <Link href={hostPlayer ? `/quiz/?room=${roomId}` : '/'} role="button">
             {hostPlayer ? '診断に参加する' : 'トップへ戻る'}
           </Link>
         </article>
@@ -212,7 +213,8 @@ export default function ResultClient() {
               )}
               <button
                 onClick={() => {
-                  const shareUrl = `${window.location.origin}/room/${roomId}/quiz`;
+                  // basePath（GitHub Pagesだと /poke-shindan）も含めた完全なURLを作る
+                  const shareUrl = `${window.location.origin}${process.env.NEXT_PUBLIC_BASE_PATH}/quiz/?room=${roomId}`;
                   navigator.clipboard.writeText(shareUrl);
                   alert('招待リンクをコピーしたよ！友達にLINEなどで送ってね。');
                 }}

@@ -1,11 +1,11 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useRouter, useParams, useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
-import { supabase } from '../../../../utils/supabase';
-import { calculatePokemonType } from '../../../../utils/pokemonLogic';
-import { isValidRoomId } from '../../../../utils/roomId';
+import { supabase } from '../../utils/supabase';
+import { calculatePokemonType } from '../../utils/pokemonLogic';
+import { isValidRoomId } from '../../utils/roomId';
 
 // 🗺️ 「もしもポケモン世界に迷い込んだら」18問の確定設問データ
 const QUESTION_TEXTS = [
@@ -140,10 +140,10 @@ const QUESTION_TEXTS = [
 // ※ useSearchParams 用の Suspense は page.js 側で包んでいます
 export default function QuizClient() {
   const router = useRouter();
-  const params = useParams();
   const searchParams = useSearchParams();
-  const roomId = params.id;
-  // URLの末尾の「?p_id=xxx」を調べる
+  // 部屋IDはURLの「?room=xxx」で受け取る（GitHub Pagesで動かすため、/room/[id] 形式はやめた）
+  const roomId = searchParams.get('room');
+  // URLの末尾の「&p_id=xxx」を調べる
   const urlPlayerId = searchParams.get('p_id');
 
   const [hostName, setHostName] = useState('');
@@ -264,7 +264,7 @@ export default function QuizClient() {
         if (error) throw error;
         
         // 診断完了！「自分が誰か」を p_id で引き継いで結果画面へジャンプします
-        router.push(`/room/${roomId}/result?p_id=${myPlayerId}`);
+        router.push(`/result/?room=${roomId}&p_id=${myPlayerId}`);
 
       } catch (error) {
         console.error('回答の保存に失敗しました:', error);

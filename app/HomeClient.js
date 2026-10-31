@@ -55,8 +55,8 @@ export default function HomeClient() {
 
       // 🎯【ホストも解答する修正】
       // 部屋を作ったら結果画面ではなく、まずクイズ画面（/quiz）へ進みます。
-      // その際、自分がホストであることを引き継ぐために、URLの末尾に「?p_id=\${playerData.id}」をくっつけて送ります。
-      router.push(`/room/${roomId}/quiz?p_id=${playerData.id}`);
+      // その際、自分がホストであることを引き継ぐために、URLに「?room=部屋ID&p_id=プレイヤーID」をくっつけて送ります。
+      router.push(`/quiz/?room=${roomId}&p_id=${playerData.id}`);
 
     } catch (err) {
       console.error('部屋の作成に失敗しました:', err);
