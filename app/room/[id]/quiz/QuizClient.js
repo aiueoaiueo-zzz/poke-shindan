@@ -1,9 +1,11 @@
 'use client';
 
-import { useState, useEffect, Suspense } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter, useParams, useSearchParams } from 'next/navigation';
+import Link from 'next/link';
 import { supabase } from '../../../../utils/supabase';
 import { calculatePokemonType } from '../../../../utils/pokemonLogic';
+import { isValidRoomId } from '../../../../utils/roomId';
 
 // 🗺️ 「もしもポケモン世界に迷い込んだら」18問の確定設問データ
 const QUESTION_TEXTS = [
@@ -135,16 +137,8 @@ const QUESTION_TEXTS = [
   }
 ];
 
-// Next.jsのuseSearchParams（クエリパラメータ取得）のエラー対策として、全体をSuspenseで保護します
-export default function QuizPage() {
-  return (
-    <Suspense fallback={<main className="container"><article aria-busy="true">読み込み中...</article></main>}>
-      <QuizClient />
-    </Suspense>
-  );
-}
-
-function QuizClient() {
+// ※ useSearchParams 用の Suspense は page.js 側で包んでいます
+export default function QuizClient() {
   const router = useRouter();
   const params = useParams();
   const searchParams = useSearchParams();
@@ -161,11 +155,30 @@ function QuizClient() {
   const [answers, setAnswers] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [roomNotFound, setRoomNotFound] = useState(false);
 
   // 画面が開いた瞬間の初期チェック
   useEffect(() => {
     const initQuizScreen = async () => {
       try {
+        // 🔐 0. 部屋IDの形式チェック（不正な値ならDBに問い合わせない）
+        if (!isValidRoomId(roomId)) {
+          setRoomNotFound(true);
+          return;
+        }
+
+        const { data: room, error: roomError } = await supabase
+          .from('rooms')
+          .select('id')
+          .eq('id', roomId)
+          .maybeSingle();
+
+        if (roomError) throw roomError;
+        if (!room) {
+          setRoomNotFound(true);
+          return;
+        }
+
         // 👑 1. この部屋のホスト（1人目）の名前を調べる
         const { data, error } = await supabase
           .from('players')
@@ -180,8 +193,9 @@ function QuizClient() {
         }
 
         // 🎯 2. ホスト自身の解答フローの自動スキップロジック
-        if (urlPlayerId) {
-          // URLにp_idが入っている＝「すでにHomeClientでデータが作成済みのホスト本人」とみなす
+        // URLにp_idが入っていて、しかもそれがこの部屋のプレイヤーなら
+        // 「すでにHomeClientでデータが作成済みのホスト本人」とみなす
+        if (urlPlayerId && data?.some((player) => String(player.id) === urlPlayerId)) {
           setMyPlayerId(urlPlayerId);
           setIsNameRegistered(true); // 名前入力をスキップして直接Q1へ
         }
@@ -249,8 +263,8 @@ function QuizClient() {
 
         if (error) throw error;
         
-        // 診断完了！結果画面へジャンプします
-        router.push(`/room/${roomId}/result`);
+        // 診断完了！「自分が誰か」を p_id で引き継いで結果画面へジャンプします
+        router.push(`/room/${roomId}/result?p_id=${myPlayerId}`);
 
       } catch (error) {
         console.error('回答の保存に失敗しました:', error);
@@ -262,6 +276,18 @@ function QuizClient() {
 
   if (isLoading) {
     return <main className="container"><article aria-busy="true">お部屋を確認中...</article></main>;
+  }
+
+  if (roomNotFound) {
+    return (
+      <main className="container" style={{ padding: '3rem 1rem', maxWidth: '600px' }}>
+        <article style={{ textAlign: 'center' }}>
+          <h1 style={{ fontSize: '1.4rem' }}>お部屋が見つかりませんでした 🥲</h1>
+          <p style={{ color: '#666' }}>招待リンクが正しいか、もう一度確認してね。</p>
+          <Link href="/" role="button">トップへ戻る</Link>
+        </article>
+      </main>
+    );
   }
 
   // 🚪 【ステップ1】名前登録がまだなら入力画面を見せる（友達用）

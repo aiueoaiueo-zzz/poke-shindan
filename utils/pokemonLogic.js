@@ -74,12 +74,12 @@ const COMPATIBILITY_CHART = {
   fairy: { steel: 'いまひとつ', electric: 'ふつう', fire: 'ばつぐん', poison: 'ばつぐん', grass: 'ばつぐん', fairy: 'ふつう', psychic: 'ばつぐん', flying: 'ふつう', rock: 'いまひとつ', ice: 'ばつぐん', fighting: 'いまひとつ', bug: 'いまひとつ', ground: 'ふつう', ghost: 'ふつう', dark: 'いまひとつ', water: 'ばつぐん', dragon: 'ばつぐん', normal: 'ふつう' },
   psychic: { steel: 'ふつう', electric: 'いまひとつ', fire: 'ばつぐん', poison: 'いまひとつ', grass: 'ふつう', fairy: 'ばつぐん', psychic: 'ふつう', flying: 'ばつぐん', rock: 'ばつぐん', ice: 'ばつぐん', fighting: 'いまひとつ', bug: 'ばつぐん', ground: 'いまひとつ', ghost: 'いまひとつ', dark: 'なし', water: 'ふつう', dragon: 'ばつぐん', normal: 'ふつう' },
   flying: { steel: 'ばつぐん', electric: 'ばつぐん', fire: 'いまひとつ', poison: 'ばつぐん', grass: 'ばつぐん', fairy: 'ふつう', psychic: 'ばつぐん', flying: 'ふつう', rock: 'いまひとつ', ice: 'ばつぐん', fighting: 'いまひとつ', bug: 'ばつぐん', ground: 'ふつう', ghost: 'ばつぐん', dark: 'ふつう', water: 'ふつう', dragon: 'ばつぐん', normal: 'ふつう' },
-  rock: { steel: 'ばつぐん', electric: '本気', fire: 'いまひとつ', poison: 'いまひとつ', grass: 'ふつう', fairy: 'いまひとつ', psychic: 'ばつぐん', flying: 'いまひとつ', rock: 'ふつう', ice: 'ばつぐん', fighting: 'ばつぐん', bug: 'ばつぐん', ground: 'ふつう', ghost: 'いまひとつ', dark: 'ふつう', water: 'いまひとつ', dragon: 'ふつう', normal: 'ふつう' },
+  rock: { steel: 'ばつぐん', electric: 'いまひとつ', fire: 'いまひとつ', poison: 'いまひとつ', grass: 'ふつう', fairy: 'いまひとつ', psychic: 'ばつぐん', flying: 'いまひとつ', rock: 'ふつう', ice: 'ばつぐん', fighting: 'ばつぐん', bug: 'ばつぐん', ground: 'ふつう', ghost: 'いまひとつ', dark: 'ふつう', water: 'いまひとつ', dragon: 'ふつう', normal: 'ふつう' },
   ice: { steel: 'ふつう', electric: 'ふつう', fire: 'ばつぐん', poison: 'いまひとつ', grass: 'ふつう', fairy: 'ばつぐん', psychic: 'ばつぐん', flying: 'ばつぐん', rock: 'ばつぐん', ice: 'ふつう', fighting: 'ばつぐん', bug: 'ばつぐん', ground: 'いまひとつ', ghost: 'いまひとつ', dark: 'いまひとつ', water: 'ふつう', dragon: 'ばつぐん', normal: 'ふつう' },
   fighting: { steel: 'いまひとつ', electric: 'いまひとつ', fire: 'ばつぐん', poison: 'ふつう', grass: 'ふつう', fairy: 'いまひとつ', psychic: 'いまひとつ', flying: 'いまひとつ', rock: 'ばつぐん', ice: 'ばつぐん', fighting: 'ふつう', bug: 'ばつぐん', ground: 'ふつう', ghost: 'なし', dark: 'ばつぐん', water: 'ふつう', dragon: 'ばつぐん', normal: 'ふつう' },
   bug: { steel: 'いまひとつ', electric: 'ふつう', fire: 'いまひとつ', poison: 'ふつう', grass: 'いまひとつ', fairy: 'いまひとつ', psychic: 'ばつぐん', flying: 'ばつぐん', rock: 'ばつぐん', ice: 'ばつぐん', fighting: 'ばつぐん', bug: 'ふつう', ground: 'いまひとつ', ghost: 'いまひとつ', dark: 'ふつう', water: 'ばつぐん', dragon: 'ふつう', normal: 'ふつう' },
   ground: { steel: 'ふつう', electric: 'ばつぐん', fire: 'いまひとつ', poison: 'ふつう', grass: 'いまひとつ', fairy: 'ふつう', psychic: 'いまひとつ', flying: 'ふつう', rock: 'ふつう', ice: 'いまひとつ', fighting: 'ふつう', bug: 'いまひとつ', ground: 'ふつう', ghost: 'ふつう', dark: 'ばつぐん', water: 'ふつう', dragon: 'ふつう', normal: 'ふつう' },
-  ghost: { steel: 'ばつぐん', electric: 'ふつう', fire: 'いまひとつ', poison: 'ばつぐん', grass: 'ふつう', fairy: 'ふつう', psychic: 'いまひとつ', flying: 'ばつぐん', rock: 'いまひとつ', ice: 'いまひとつ', fighting: 'なし', bug: 'いまひとつ', ground: 'ふつう', ghost: 'ふつう', dark: 'ばつぐん', water: '⁪ばつぐん', dragon: '⁪ばつぐん', normal: 'ふつう' },
+  ghost: { steel: 'ばつぐん', electric: 'ふつう', fire: 'いまひとつ', poison: 'ばつぐん', grass: 'ふつう', fairy: 'ふつう', psychic: 'いまひとつ', flying: 'ばつぐん', rock: 'いまひとつ', ice: 'いまひとつ', fighting: 'なし', bug: 'いまひとつ', ground: 'ふつう', ghost: 'ふつう', dark: 'ばつぐん', water: 'ばつぐん', dragon: 'ばつぐん', normal: 'ふつう' },
   dark: { steel: 'いまひとつ', electric: 'ふつう', fire: 'ばつぐん', poison: 'ばつぐん', grass: 'いまひとつ', fairy: 'いまひとつ', psychic: 'なし', flying: 'いまひとつ', rock: 'ふつう', ice: 'いまひとつ', fighting: 'ばつぐん', bug: 'ふつう', ground: 'ふつう', ghost: 'ばつぐん', dark: 'ふつう', water: 'ばつぐん', dragon: 'ふつう', normal: 'ふつう' },
   water: { steel: 'いまひとつ', electric: 'ばつぐん', fire: 'いまひとつ', poison: 'ふつう', grass: 'ふつう', fairy: 'ばつぐん', psychic: 'ふつう', flying: 'ふつう', rock: 'いまひとつ', ice: 'ふつう', fighting: 'ふつう', bug: 'ばつぐん', ground: 'ふつう', ghost: 'ばつぐん', dark: 'ばつぐん', water: 'ふつう', dragon: 'ふつう', normal: 'ふつう' },
   dragon: { steel: 'ばつぐん', electric: 'ふつう', fire: 'ばつぐん', poison: 'ふつう', grass: 'ばつぐん', fairy: 'ばつぐん', psychic: 'ばつぐん', flying: 'ばつぐん', rock: 'ふつう', ice: 'ふつう', fighting: 'ふつう', bug: 'ふつう', ground: 'ふつう', ghost: 'ふつう', dark: 'ふつう', water: 'ふつう', dragon: 'ばつぐん', normal: 'ふつう' },
@@ -130,6 +130,9 @@ export function checkCompatibility(type1, type2) {
  * 指定したタイプのポケモン一覧をPokeAPIから取得し、ランダムに2匹選んで返す関数
  * （通信エラー時やローカルネットワークブロック時はピカチュウとイーブイの安全データを返します）
  */
+// PokeAPI公式スプライト画像の置き場所（図鑑番号.png で取得できる）
+const SPRITE_BASE_URL = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon';
+
 export async function getRandomPokemonsByType(typeName) {
   try {
     if (!typeName) throw new Error('タイプ名が指定されていません');
@@ -146,8 +149,8 @@ export async function getRandomPokemonsByType(typeName) {
     const rawType = String(typeName).trim();
     const cleanType = typeTranslation[rawType] || rawType.toLowerCase();
 
-    // 1. 正しいEnd点URLでfetchを実行
-    const response = await fetch(`https://pokeapi.co{cleanType}`);
+    // 1. PokeAPIの「タイプ別ポケモン一覧」エンドポイントを叩く
+    const response = await fetch(`https://pokeapi.co/api/v2/type/${encodeURIComponent(cleanType)}`);
     
     if (!response.ok) throw new Error('APIの取得に失敗しました');
     const data = await response.json();
@@ -176,7 +179,7 @@ export async function getRandomPokemonsByType(typeName) {
         const detailData = await detailResponse.json();
         return {
           name: detailData.name,
-          image: detailData.sprites.front_default || "https://githubusercontent.com"
+          image: detailData.sprites?.front_default || null // 画像が無いポケモンは画面側で❓表示
         };
       })
     );
@@ -190,11 +193,11 @@ export async function getRandomPokemonsByType(typeName) {
     return [
       {
         name: "pikachu (代理データ)",
-        image: "https://githubusercontent.com"
+        image: `${SPRITE_BASE_URL}/25.png`
       },
       {
         name: "eevee (代理データ)",
-        image: "https://githubusercontent.com"
+        image: `${SPRITE_BASE_URL}/133.png`
       }
     ];
   }

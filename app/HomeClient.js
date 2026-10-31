@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '../utils/supabase';
+import { generateRoomId } from '../utils/roomId';
 
 export default function HomeClient() {
   const router = useRouter();
@@ -19,15 +20,22 @@ export default function HomeClient() {
 
     try {
       // 1. 🚪 roomsテーブルに新しい部屋を作成
-      const { data: roomData, error: roomError } = await supabase
-        .from('rooms')
-        .insert([{}])
-        .select()
-        .single();
+      //    連番ではなく、推測されにくい10文字のランダムIDをこちらで発行して登録する
+      //    （万一IDが既存の部屋と被った場合＝一意制約違反 23505 のときだけ作り直す）
+      let roomId = null;
+      for (let attempt = 0; attempt < 3 && !roomId; attempt++) {
+        const candidateId = generateRoomId();
+        const { error: roomError } = await supabase
+          .from('rooms')
+          .insert([{ id: candidateId }]);
 
-      if (roomError) throw roomError;
-
-      const roomId = roomData.id;
+        if (!roomError) {
+          roomId = candidateId;
+        } else if (roomError.code !== '23505') {
+          throw roomError;
+        }
+      }
+      if (!roomId) throw new Error('部屋IDの発行に失敗しました');
 
       // 2. 👑 部屋を作った人を「ホスト（1人目）」としてplayersテーブルに登録
       const { data: playerData, error: playerError } = await supabase
@@ -37,7 +45,7 @@ export default function HomeClient() {
             room_id: roomId,
             name: hostName.trim(),
             answers: [],
-            pokemon_type: 'normal' 
+            pokemon_type: '' // 回答し終わるまでは空（友達側と統一）
           }
         ])
         .select()

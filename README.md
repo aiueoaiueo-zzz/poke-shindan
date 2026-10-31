@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ポロック相性診断アプリ 🎮
 
-## Getting Started
+「もしもポケモン世界に迷い込んだら？」という18問の質問に答えて、18タイプのうち自分のタイプを診断し、友達との相性をチェックできる Next.js アプリです。
 
-First, run the development server:
+## 使い方の流れ
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+1. トップページでホストがニックネームを入力 → 部屋が作成され、18問のクイズへ
+2. 結果画面の「リンクをコピーして友達を招待する」で招待リンクを共有
+3. 友達はニックネームを登録してクイズに回答 → ホストとの相性が表示される
+4. ホストの結果画面には、回答済みの友達の相性ランキングが表示される
+
+部屋IDは推測されにくい英数字10文字のランダム文字列です（`utils/roomId.js`）。
+「自分が誰か」は URL の `?p_id=` で引き継いでいます。
+
+## セットアップ
+
+### 1. 環境変数
+
+`.env.local` に Supabase の接続情報を書きます。
+
+```
+NEXT_PUBLIC_SUPABASE_URL=https://xxxx.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=xxxx
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Supabase のテーブル
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+| テーブル | カラム |
+| --- | --- |
+| `rooms` | `id` (text, 主キー, 英数字10文字) |
+| `players` | `id`, `room_id` (text, `rooms.id` への外部キー), `name`, `answers` (json/配列), `pokemon_type` (text), `created_at` |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+連番IDの `rooms` テーブルを使っていた場合は、`supabase/migrations/20261031000000_random_room_id.sql` を SQL Editor で実行してください（既存データは削除されます）。
 
-## Learn More
+### 3. 起動
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm install
+npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+http://localhost:3000 を開きます。
