@@ -1,0 +1,12 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  // v1 はデータベースなしの静的サイト。Vite のビルド結果を Workers の静的アセットとして配信する。
+  // フェーズ2で D1・R2・管理画面を足すときに "main"（Worker 本体）と各バインディングを追加する。
+  "name": "compass-shindan",
+  "compatibility_date": "2026-10-01",
+  "preview_urls": false,
+  "assets": {
+    "not_found_handling": "single-page-application"
+  },
+  "observability": { "enabled": true }
+}

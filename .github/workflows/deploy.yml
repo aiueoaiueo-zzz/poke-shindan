@@ -1,0 +1,48 @@
+# Cloudflare Workers へのデプロイ
+# - 自動：master ブランチに変更が入ったとき
+# - 手動：GitHub の「Actions」→「デプロイ（Cloudflare）」→「Run workflow」
+# Secrets に CLOUDFLARE_API_TOKEN と CLOUDFLARE_ACCOUNT_ID が登録されていないときは、テストだけ行ってデプロイは省略する
+name: デプロイ（Cloudflare）
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [master]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: 依存パッケージのインストール
+        run: npm ci
+
+      - name: 型チェックと単体テスト
+        run: npm run typecheck && npm test
+
+      - name: デプロイ
+        if: env.CLOUDFLARE_API_TOKEN != '' && env.CLOUDFLARE_ACCOUNT_ID != ''
+        run: npm run deploy
+
+      - name: デプロイを省略したことを表示
+        if: env.CLOUDFLARE_API_TOKEN == '' || env.CLOUDFLARE_ACCOUNT_ID == ''
+        run: |
+          echo "::warning::Secrets に CLOUDFLARE_API_TOKEN と CLOUDFLARE_ACCOUNT_ID が未登録のため、デプロイを省略しました"
+          echo "### デプロイを省略しました" >> "$GITHUB_STEP_SUMMARY"
+          echo "Secrets に CLOUDFLARE_API_TOKEN と CLOUDFLARE_ACCOUNT_ID を登録してから、もう一度実行してください。" >> "$GITHUB_STEP_SUMMARY"

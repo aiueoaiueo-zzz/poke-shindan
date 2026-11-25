@@ -1,0 +1,10 @@
+[
+  { "id": "sample-01", "name": "サンプルヒーローA", "gender": "female", "mbti": "ENFP", "image": null, "sortOrder": 1 },
+  { "id": "sample-02", "name": "サンプルヒーローB", "gender": "female", "mbti": "INTJ", "image": null, "sortOrder": 2 },
+  { "id": "sample-03", "name": "サンプルヒーローC", "gender": "female", "mbti": "ESFJ", "image": null, "sortOrder": 3 },
+  { "id": "sample-04", "name": "サンプルヒーローD", "gender": "female", "mbti": "ISTP", "image": null, "sortOrder": 4 },
+  { "id": "sample-05", "name": "サンプルヒーローE", "gender": "female", "mbti": "INFP", "image": null, "sortOrder": 5 },
+  { "id": "sample-06", "name": "サンプルヒーローF", "gender": "female", "mbti": "ESTJ", "image": null, "sortOrder": 6 },
+  { "id": "sample-07", "name": "サンプルヒーローG", "gender": "female", "mbti": "ENTP", "image": null, "sortOrder": 7 },
+  { "id": "sample-08", "name": "サンプルヒーローH", "gender": "female", "mbti": "ISFJ", "image": null, "sortOrder": 8 }
+]

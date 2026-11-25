@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "M PLUS Rounded 1c", ui-rounded, system-ui, sans-serif;
+  --color-pink-main: #ff5c8a;
+  --color-pink-soft: #ffe3ec;
+  --color-sky-main: #4aa8ff;
+  --color-sky-soft: #e2f1ff;
+  --color-ink: #3a2e3f;
+  --color-ink-soft: #7d6f84;
+  --color-cream: #fff8f3;
+}
+
+html,
+body {
+  background: var(--color-cream);
+  color: var(--color-ink);
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* 背景のうっすらした水玉 */
+body {
+  background-image: radial-gradient(circle at 1px 1px, #ffd6e3 1.2px, transparent 0);
+  background-size: 22px 22px;
+}
+
+@keyframes pop-in {
+  0% { transform: scale(0.6); opacity: 0; }
+  70% { transform: scale(1.08); opacity: 1; }
+  100% { transform: scale(1); }
+}
+.animate-pop-in {
+  animation: pop-in 0.45s ease-out both;
+}
+
+@keyframes fade-up {
+  from { transform: translateY(8px); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+.animate-fade-up {
+  animation: fade-up 0.3s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-pop-in,
+  .animate-fade-up {
+    animation: none;
+  }
+}

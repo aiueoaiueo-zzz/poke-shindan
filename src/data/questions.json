@@ -1,0 +1,14 @@
+[
+  { "id": 1, "axis": "EI", "text": "バトルが終わったあと、どうしたい？", "optionA": { "text": "みんなで集まって今の試合を振り返りたい", "letter": "E" }, "optionB": { "text": "ひとりで静かに一息つきたい", "letter": "I" } },
+  { "id": 2, "axis": "SN", "text": "新しいステージに来たら、まず何をする？", "optionA": { "text": "ポータルの位置や地形を一つずつ確かめる", "letter": "S" }, "optionB": { "text": "全体の雰囲気から、どう動くかをイメージする", "letter": "N" } },
+  { "id": 3, "axis": "TF", "text": "味方がミスをしたとき、かける言葉は？", "optionA": { "text": "「次はこう動くといいかも」と改善点を伝える", "letter": "T" }, "optionB": { "text": "「ドンマイ！」とまずは気持ちを気づかう", "letter": "F" } },
+  { "id": 4, "axis": "JP", "text": "試合前の作戦はどうする？", "optionA": { "text": "役割と動き方をしっかり決めておきたい", "letter": "J" }, "optionB": { "text": "大まかに決めて、あとはその場で合わせたい", "letter": "P" } },
+  { "id": 5, "axis": "EI", "text": "初めて組む人とのチームでは？", "optionA": { "text": "自分から話しかけて、すぐに打ち解けたい", "letter": "E" }, "optionB": { "text": "まずは様子を見て、少しずつ距離を縮めたい", "letter": "I" } },
+  { "id": 6, "axis": "SN", "text": "新しいヒーローを覚えるときは？", "optionA": { "text": "数値や細かい性能から確実に覚える", "letter": "S" }, "optionB": { "text": "使ってみた感覚から、強みをつかむ", "letter": "N" } },
+  { "id": 7, "axis": "TF", "text": "チームで意見が分かれたら？", "optionA": { "text": "勝てる確率が高いほうを選ぶ", "letter": "T" }, "optionB": { "text": "みんなが納得できるほうを選ぶ", "letter": "F" } },
+  { "id": 8, "axis": "JP", "text": "休みの日の過ごし方は？", "optionA": { "text": "やることを決めて、予定どおりに進めたい", "letter": "J" }, "optionB": { "text": "その日の気分で、やりたいことをしたい", "letter": "P" } },
+  { "id": 9, "axis": "EI", "text": "元気を取り戻したいとき、どうする？", "optionA": { "text": "友達と話したり出かけたりする", "letter": "E" }, "optionB": { "text": "ひとりの時間でゆっくり回復する", "letter": "I" } },
+  { "id": 10, "axis": "SN", "text": "話を聞くときに気になるのは？", "optionA": { "text": "実際に何があったのか、具体的な中身", "letter": "S" }, "optionB": { "text": "その話が何を意味するのか、その先の可能性", "letter": "N" } },
+  { "id": 11, "axis": "TF", "text": "友達に相談されたら？", "optionA": { "text": "解決策を一緒に考える", "letter": "T" }, "optionB": { "text": "まずは話をじっくり聞いて共感する", "letter": "F" } },
+  { "id": 12, "axis": "JP", "text": "宿題やタスクの進め方は？", "optionA": { "text": "早めに計画を立てて、コツコツ片づける", "letter": "J" }, "optionB": { "text": "締め切りが近づくと一気に集中できる", "letter": "P" } }
+]
