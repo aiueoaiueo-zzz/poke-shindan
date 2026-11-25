@@ -1,12 +1,12 @@
 [
-  { "mode": "love", "rank": 5, "label": "運命の相手", "comment": "出会った瞬間から通じ合う二人。一緒にいるだけで毎日がきらきらしそう。", "sceneImage": null },
-  { "mode": "love", "rank": 4, "label": "いい雰囲気", "comment": "気づけば目で追ってしまう関係。あと一歩で何かが始まりそう。", "sceneImage": null },
-  { "mode": "love", "rank": 3, "label": "友達以上、恋人未満", "comment": "気軽に話せる心地よい距離感。ここから先は二人しだい。", "sceneImage": null },
-  { "mode": "love", "rank": 2, "label": "すれ違いがち", "comment": "タイミングがなかなか合わない二人。でも、すれ違うほど気になることも。", "sceneImage": null },
-  { "mode": "love", "rank": 1, "label": "恋の予感ゼロ", "comment": "今のところ恋の気配はなし。まずは友達から始めてみよう。", "sceneImage": null },
-  { "mode": "partner", "rank": 5, "label": "最強のバディ", "comment": "言葉がなくても動きが合う、息ぴったりのコンビ。", "sceneImage": null },
-  { "mode": "partner", "rank": 4, "label": "頼れる相棒", "comment": "ピンチのときに背中を預けられる、心強い関係。", "sceneImage": null },
-  { "mode": "partner", "rank": 3, "label": "気の合うチームメイト", "comment": "一緒にいて気楽な仲間。試合のあとの雑談も楽しそう。", "sceneImage": null },
-  { "mode": "partner", "rank": 2, "label": "すれ違いがちな二人", "comment": "作戦がかみ合わないことも。話し合えば意外な連携が生まれるかも。", "sceneImage": null },
-  { "mode": "partner", "rank": 1, "label": "同じポータルを取り合う仲", "comment": "いつも同じものを狙ってしまう二人。ライバルとしてなら最高かも。", "sceneImage": null }
+  {"mode": "love", "rank": 5, "label": "運命の相手", "comment": "出会った瞬間から通じ合う二人。一緒にいるだけで毎日がきらきらしそう。", "sceneImage": "scenes/rank5.svg"},
+  {"mode": "love", "rank": 4, "label": "いい雰囲気", "comment": "気づけば目で追ってしまう関係。あと一歩で何かが始まりそう。", "sceneImage": "scenes/rank4.svg"},
+  {"mode": "love", "rank": 3, "label": "友達以上、恋人未満", "comment": "気軽に話せる心地よい距離感。ここから先は二人しだい。", "sceneImage": "scenes/rank3.svg"},
+  {"mode": "love", "rank": 2, "label": "すれ違いがち", "comment": "タイミングがなかなか合わない二人。でも、すれ違うほど気になることも。", "sceneImage": "scenes/rank2.svg"},
+  {"mode": "love", "rank": 1, "label": "恋の予感ゼロ", "comment": "今のところ恋の気配はなし。まずは友達から始めてみよう。", "sceneImage": "scenes/rank1.svg"},
+  {"mode": "partner", "rank": 5, "label": "最強のバディ", "comment": "言葉がなくても動きが合う、息ぴったりのコンビ。", "sceneImage": "scenes/rank5.svg"},
+  {"mode": "partner", "rank": 4, "label": "頼れる相棒", "comment": "ピンチのときに背中を預けられる、心強い関係。", "sceneImage": "scenes/rank4.svg"},
+  {"mode": "partner", "rank": 3, "label": "気の合うチームメイト", "comment": "一緒にいて気楽な仲間。試合のあとの雑談も楽しそう。", "sceneImage": "scenes/rank3.svg"},
+  {"mode": "partner", "rank": 2, "label": "すれ違いがちな二人", "comment": "作戦がかみ合わないことも。話し合えば意外な連携が生まれるかも。", "sceneImage": "scenes/rank2.svg"},
+  {"mode": "partner", "rank": 1, "label": "同じポータルを取り合う仲", "comment": "いつも同じものを狙ってしまう二人。ライバルとしてなら最高かも。", "sceneImage": "scenes/rank1.svg"}
 ]

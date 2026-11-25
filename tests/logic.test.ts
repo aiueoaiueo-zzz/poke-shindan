@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { compatibility, heroes, questions, resultTexts } from "../src/shared/data";
-import { decideMode, getRank, getResultText, judgeMbti, rankHeroes, validateData } from "../src/shared/logic";
+import { decideMode, getRank, getResultText, judgeMbti, validateData } from "../src/shared/logic";
+import { hearts, shareText, xShareUrl } from "../src/shared/share";
 import type { Choice, Question } from "../src/shared/types";
 
 /** 目標の4文字になるように回答を作る（各指標3問すべてその文字を選ぶ） */
@@ -66,15 +67,25 @@ describe("getResultText", () => {
   });
 });
 
-describe("rankHeroes", () => {
-  it("ランクの高い順、同じランクは登録順に並べる", () => {
-    const ranked = rankHeroes(compatibility, heroes, "INTJ", true);
-    expect(ranked).toHaveLength(heroes.length);
-    for (let i = 1; i < ranked.length; i++) {
-      const prev = ranked[i - 1];
-      const cur = ranked[i];
-      expect(prev.rank > cur.rank || (prev.rank === cur.rank && prev.hero.sortOrder < cur.hero.sortOrder)).toBe(true);
+describe("X への共有", () => {
+  it("ハートの数だけ ♥ にする", () => {
+    expect(hearts(3)).toBe("♥♥♥♡♡");
+  });
+
+  it("本文・URL・ハッシュタグを入れた投稿URLを作る", () => {
+    const url = new URL(xShareUrl(shareText("サンプルヒーローC", 5, "運命の相手"), "https://example.com/"));
+    expect(url.origin + url.pathname).toBe("https://x.com/intent/post");
+    expect(url.searchParams.get("text")).toBe("サンプルヒーローCとの相性は…\n♥♥♥♥♥「運命の相手」でした！");
+    expect(url.searchParams.get("url")).toBe("https://example.com/");
+    expect(url.searchParams.get("hashtags")).toBe("コンパス,コンパス相性診断");
+  });
+});
+
+describe("場面画像", () => {
+  it("ハートの数ごとに違う画像になっている", () => {
+    for (const mode of ["love", "partner"] as const) {
+      const images = ([1, 2, 3, 4, 5] as const).map((r) => getResultText(resultTexts, mode, r).sceneImage);
+      expect(new Set(images).size).toBe(5);
     }
-    expect(ranked[0].hero.mbti).toBe("ESFJ"); // INTJ の最高の相手
   });
 });

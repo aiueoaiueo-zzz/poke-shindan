@@ -63,24 +63,6 @@ export function getResultText(texts: ResultText[], mode: Mode, rank: Rank): Resu
   return text;
 }
 
-export interface RankedHero {
-  hero: Hero;
-  rank: Rank;
-  mode: Mode;
-}
-
-/** 全ヒーローをランクの高い順に並べる。同じランクは登録順（sortOrder） */
-export function rankHeroes(
-  table: CompatibilityTable,
-  heroes: Hero[],
-  user: MbtiType,
-  likesWomen: boolean,
-): RankedHero[] {
-  return heroes
-    .map((hero) => ({ hero, rank: getRank(table, user, hero.mbti), mode: decideMode(likesWomen, hero) }))
-    .sort((a, b) => b.rank - a.rank || a.hero.sortOrder - b.hero.sortOrder);
-}
-
 /**
  * データファイルの中身が仕様どおりかを確かめる。問題があればその内容を返す（なければ空配列）。
  * データを差し替えたときに、テストで壊れていないかを確認するために使う。

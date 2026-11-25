@@ -2,15 +2,14 @@ import { useEffect, useMemo, useState } from "react";
 import { Layout } from "./components/Layout";
 import { HeroSelect } from "./pages/HeroSelect";
 import { Quiz } from "./pages/Quiz";
-import { Ranking } from "./pages/Ranking";
 import { Result } from "./pages/Result";
 import { Start } from "./pages/Start";
 import { compatibility, heroes, questions, resultTexts } from "../shared/data";
-import { decideMode, getRank, getResultText, judgeMbti, rankHeroes } from "../shared/logic";
+import { decideMode, getRank, getResultText, judgeMbti } from "../shared/logic";
 import type { Choice, MbtiType } from "../shared/types";
 
-// 画面の流れ（仕様書「画面の流れ」）：最初の質問 → 12問 → ヒーロー選択 → 結果 → ほかのヒーロー／ランキング／最初から
-type Step = "start" | "quiz" | "heroes" | "result" | "ranking";
+// 画面の流れ：最初の質問 → 12問 → ヒーロー選択 → 結果 → ほかのヒーロー／最初から
+type Step = "start" | "quiz" | "heroes" | "result";
 
 // 回答と結果は保存しない（ページ内で完結）。ブラウザの「戻る」で画面を戻れるように、画面名だけ履歴に積む
 export default function App() {
@@ -59,8 +58,7 @@ export default function App() {
     step === "start" ||
     (step === "quiz" && likesWomen !== null && !mbti) ||
     (step === "heroes" && likesWomen !== null && mbti) ||
-    (step === "result" && likesWomen !== null && mbti && hero) ||
-    (step === "ranking" && likesWomen !== null && mbti);
+    (step === "result" && likesWomen !== null && mbti && hero);
 
   let content;
   if (!ready || step === "start") {
@@ -109,20 +107,6 @@ export default function App() {
         mode={mode}
         text={getResultText(resultTexts, mode, rank)}
         onPickAnother={() => go("heroes")}
-        onRanking={() => go("ranking")}
-        onRestart={restart}
-      />
-    );
-  } else if (step === "ranking" && mbti && likesWomen !== null) {
-    content = (
-      <Ranking
-        ranked={rankHeroes(compatibility, heroes, mbti, likesWomen)}
-        textFor={(item) => getResultText(resultTexts, item.mode, item.rank)}
-        onSelect={(h) => {
-          setHeroId(h.id);
-          go("result");
-        }}
-        onBack={() => window.history.back()}
         onRestart={restart}
       />
     );
