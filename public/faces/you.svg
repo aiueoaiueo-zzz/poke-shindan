@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <circle cx="200" cy="200" r="190" fill="#d9d2e3"/>
+  <circle cx="200" cy="165" r="80" fill="#fff" opacity="0.9"/>
+  <path d="M70 360 Q80 250 200 250 Q320 250 330 360 Z" fill="#fff" opacity="0.9"/>
+  <text x="200" y="182" font-size="44" font-weight="700" text-anchor="middle" fill="#9a8fb0" font-family="sans-serif">YOU</text>
+</svg>

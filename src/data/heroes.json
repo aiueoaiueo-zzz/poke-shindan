@@ -1,10 +1,10 @@
 [
-  { "id": "sample-01", "name": "サンプルヒーローA", "gender": "female", "mbti": "ENFP", "image": null, "sortOrder": 1 },
-  { "id": "sample-02", "name": "サンプルヒーローB", "gender": "female", "mbti": "INTJ", "image": null, "sortOrder": 2 },
-  { "id": "sample-03", "name": "サンプルヒーローC", "gender": "female", "mbti": "ESFJ", "image": null, "sortOrder": 3 },
-  { "id": "sample-04", "name": "サンプルヒーローD", "gender": "female", "mbti": "ISTP", "image": null, "sortOrder": 4 },
-  { "id": "sample-05", "name": "サンプルヒーローE", "gender": "female", "mbti": "INFP", "image": null, "sortOrder": 5 },
-  { "id": "sample-06", "name": "サンプルヒーローF", "gender": "female", "mbti": "ESTJ", "image": null, "sortOrder": 6 },
-  { "id": "sample-07", "name": "サンプルヒーローG", "gender": "female", "mbti": "ENTP", "image": null, "sortOrder": 7 },
-  { "id": "sample-08", "name": "サンプルヒーローH", "gender": "female", "mbti": "ISFJ", "image": null, "sortOrder": 8 }
+  {"id": "sample-01", "name": "サンプルヒーローA", "gender": "female", "mbti": "ENFP", "image": "faces/sample-01.svg", "sortOrder": 1, "faceImage": "faces/sample-01.svg"},
+  {"id": "sample-02", "name": "サンプルヒーローB", "gender": "female", "mbti": "INTJ", "image": "faces/sample-02.svg", "sortOrder": 2, "faceImage": "faces/sample-02.svg"},
+  {"id": "sample-03", "name": "サンプルヒーローC", "gender": "female", "mbti": "ESFJ", "image": "faces/sample-03.svg", "sortOrder": 3, "faceImage": "faces/sample-03.svg"},
+  {"id": "sample-04", "name": "サンプルヒーローD", "gender": "female", "mbti": "ISTP", "image": "faces/sample-04.svg", "sortOrder": 4, "faceImage": "faces/sample-04.svg"},
+  {"id": "sample-05", "name": "サンプルヒーローE", "gender": "female", "mbti": "INFP", "image": "faces/sample-05.svg", "sortOrder": 5, "faceImage": "faces/sample-05.svg"},
+  {"id": "sample-06", "name": "サンプルヒーローF", "gender": "female", "mbti": "ESTJ", "image": "faces/sample-06.svg", "sortOrder": 6, "faceImage": "faces/sample-06.svg"},
+  {"id": "sample-07", "name": "サンプルヒーローG", "gender": "female", "mbti": "ENTP", "image": "faces/sample-07.svg", "sortOrder": 7, "faceImage": "faces/sample-07.svg"},
+  {"id": "sample-08", "name": "サンプルヒーローH", "gender": "female", "mbti": "ISFJ", "image": "faces/sample-08.svg", "sortOrder": 8, "faceImage": "faces/sample-08.svg"}
 ]

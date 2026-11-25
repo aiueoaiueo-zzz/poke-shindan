@@ -1,12 +1,12 @@
 [
-  {"mode": "love", "rank": 5, "label": "運命の相手", "comment": "出会った瞬間から通じ合う二人。一緒にいるだけで毎日がきらきらしそう。", "sceneImage": "scenes/rank5.svg"},
-  {"mode": "love", "rank": 4, "label": "いい雰囲気", "comment": "気づけば目で追ってしまう関係。あと一歩で何かが始まりそう。", "sceneImage": "scenes/rank4.svg"},
-  {"mode": "love", "rank": 3, "label": "友達以上、恋人未満", "comment": "気軽に話せる心地よい距離感。ここから先は二人しだい。", "sceneImage": "scenes/rank3.svg"},
-  {"mode": "love", "rank": 2, "label": "すれ違いがち", "comment": "タイミングがなかなか合わない二人。でも、すれ違うほど気になることも。", "sceneImage": "scenes/rank2.svg"},
-  {"mode": "love", "rank": 1, "label": "恋の予感ゼロ", "comment": "今のところ恋の気配はなし。まずは友達から始めてみよう。", "sceneImage": "scenes/rank1.svg"},
-  {"mode": "partner", "rank": 5, "label": "最強のバディ", "comment": "言葉がなくても動きが合う、息ぴったりのコンビ。", "sceneImage": "scenes/rank5.svg"},
-  {"mode": "partner", "rank": 4, "label": "頼れる相棒", "comment": "ピンチのときに背中を預けられる、心強い関係。", "sceneImage": "scenes/rank4.svg"},
-  {"mode": "partner", "rank": 3, "label": "気の合うチームメイト", "comment": "一緒にいて気楽な仲間。試合のあとの雑談も楽しそう。", "sceneImage": "scenes/rank3.svg"},
-  {"mode": "partner", "rank": 2, "label": "すれ違いがちな二人", "comment": "作戦がかみ合わないことも。話し合えば意外な連携が生まれるかも。", "sceneImage": "scenes/rank2.svg"},
-  {"mode": "partner", "rank": 1, "label": "同じポータルを取り合う仲", "comment": "いつも同じものを狙ってしまう二人。ライバルとしてなら最高かも。", "sceneImage": "scenes/rank1.svg"}
+  {"mode": "love", "rank": 5, "label": "運命の相手", "comment": "出会った瞬間から通じ合う二人。一緒にいるだけで毎日がきらきらしそう。", "sceneImage": "scenes/rank5.svg", "faceSlots": [{"who": "user", "x": 430, "y": 300, "r": 135, "rotate": -10}, {"who": "hero", "x": 770, "y": 300, "r": 135, "rotate": 10}]},
+  {"mode": "love", "rank": 4, "label": "いい雰囲気", "comment": "気づけば目で追ってしまう関係。あと一歩で何かが始まりそう。", "sceneImage": "scenes/rank4.svg", "faceSlots": [{"who": "user", "x": 400, "y": 300, "r": 135, "rotate": -5}, {"who": "hero", "x": 800, "y": 300, "r": 135, "rotate": 5}]},
+  {"mode": "love", "rank": 3, "label": "友達以上、恋人未満", "comment": "気軽に話せる心地よい距離感。ここから先は二人しだい。", "sceneImage": "scenes/rank3.svg", "faceSlots": [{"who": "user", "x": 360, "y": 300, "r": 135, "rotate": 0}, {"who": "hero", "x": 840, "y": 300, "r": 135, "rotate": 0}]},
+  {"mode": "love", "rank": 2, "label": "すれ違いがち", "comment": "タイミングがなかなか合わない二人。でも、すれ違うほど気になることも。", "sceneImage": "scenes/rank2.svg", "faceSlots": [{"who": "user", "x": 315, "y": 300, "r": 135, "rotate": 6}, {"who": "hero", "x": 885, "y": 300, "r": 135, "rotate": -6}]},
+  {"mode": "love", "rank": 1, "label": "恋の予感ゼロ", "comment": "今のところ恋の気配はなし。まずは友達から始めてみよう。", "sceneImage": "scenes/rank1.svg", "faceSlots": [{"who": "user", "x": 265, "y": 300, "r": 135, "rotate": 10}, {"who": "hero", "x": 935, "y": 300, "r": 135, "rotate": -10}]},
+  {"mode": "partner", "rank": 5, "label": "最強のバディ", "comment": "言葉がなくても動きが合う、息ぴったりのコンビ。", "sceneImage": "scenes/rank5.svg", "faceSlots": [{"who": "user", "x": 430, "y": 300, "r": 135, "rotate": -10}, {"who": "hero", "x": 770, "y": 300, "r": 135, "rotate": 10}]},
+  {"mode": "partner", "rank": 4, "label": "頼れる相棒", "comment": "ピンチのときに背中を預けられる、心強い関係。", "sceneImage": "scenes/rank4.svg", "faceSlots": [{"who": "user", "x": 400, "y": 300, "r": 135, "rotate": -5}, {"who": "hero", "x": 800, "y": 300, "r": 135, "rotate": 5}]},
+  {"mode": "partner", "rank": 3, "label": "気の合うチームメイト", "comment": "一緒にいて気楽な仲間。試合のあとの雑談も楽しそう。", "sceneImage": "scenes/rank3.svg", "faceSlots": [{"who": "user", "x": 360, "y": 300, "r": 135, "rotate": 0}, {"who": "hero", "x": 840, "y": 300, "r": 135, "rotate": 0}]},
+  {"mode": "partner", "rank": 2, "label": "すれ違いがちな二人", "comment": "作戦がかみ合わないことも。話し合えば意外な連携が生まれるかも。", "sceneImage": "scenes/rank2.svg", "faceSlots": [{"who": "user", "x": 315, "y": 300, "r": 135, "rotate": 6}, {"who": "hero", "x": 885, "y": 300, "r": 135, "rotate": -6}]},
+  {"mode": "partner", "rank": 1, "label": "同じポータルを取り合う仲", "comment": "いつも同じものを狙ってしまう二人。ライバルとしてなら最高かも。", "sceneImage": "scenes/rank1.svg", "faceSlots": [{"who": "user", "x": 265, "y": 300, "r": 135, "rotate": 10}, {"who": "hero", "x": 935, "y": 300, "r": 135, "rotate": -10}]}
 ]

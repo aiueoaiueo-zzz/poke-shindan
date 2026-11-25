@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { compatibility, heroes, questions, resultTexts } from "../src/shared/data";
 import { decideMode, getRank, getResultText, judgeMbti, validateData } from "../src/shared/logic";
+import { centerSquare, faceSources, validateSlots } from "../src/shared/compose";
 import { hearts, shareText, xShareUrl } from "../src/shared/share";
 import type { Choice, Question } from "../src/shared/types";
 
@@ -87,5 +88,31 @@ describe("場面画像", () => {
       const images = ([1, 2, 3, 4, 5] as const).map((r) => getResultText(resultTexts, mode, r).sceneImage);
       expect(new Set(images).size).toBe(5);
     }
+  });
+});
+
+describe("相性診断画像の組み立て", () => {
+  it("顔画像の真ん中を正方形に切り抜く", () => {
+    expect(centerSquare({ width: 400, height: 400 })).toEqual({ sx: 0, sy: 0, side: 400 });
+    expect(centerSquare({ width: 600, height: 400 })).toEqual({ sx: 100, sy: 0, side: 400 });
+    expect(centerSquare({ width: 300, height: 500 })).toEqual({ sx: 0, sy: 100, side: 300 });
+  });
+
+  it("ヒーローの位置にはヒーローの顔、あなたの位置にはあなたの顔を入れる", () => {
+    const slots = [
+      { who: "user" as const, x: 300, y: 300, r: 100 },
+      { who: "hero" as const, x: 900, y: 300, r: 100 },
+    ];
+    expect(faceSources(slots, "hero.png", "you.png").map((f) => f.src)).toEqual(["you.png", "hero.png"]);
+  });
+
+  it("顔の位置が画像からはみ出していたら見つける", () => {
+    const problems = validateSlots({ mode: "love", rank: 5, faceSlots: [{ who: "hero", x: 1150, y: 300, r: 100 }] });
+    expect(problems.some((p) => p.includes("はみ出し"))).toBe(true);
+  });
+
+  it("ヒーローの顔の位置がなければ見つける", () => {
+    const problems = validateSlots({ mode: "love", rank: 5, faceSlots: [{ who: "user", x: 300, y: 300, r: 100 }] });
+    expect(problems.some((p) => p.includes("ヒーローの顔"))).toBe(true);
   });
 });

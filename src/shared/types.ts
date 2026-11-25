@@ -17,8 +17,10 @@ export interface Hero {
   name: string;
   gender: Gender;
   mbti: MbtiType;
-  /** 画像のパス。ないときは null（画面では名前の頭文字を丸の中に出す） */
+  /** 一覧で使う画像のパス。ないときは null（画面では名前の頭文字を丸の中に出す） */
   image: string | null;
+  /** 相性診断画像で場面にはめ込む顔の画像（正方形）。ないときは image を使う */
+  faceImage: string | null;
   sortOrder: number;
 }
 
@@ -44,10 +46,26 @@ export interface CompatibilityTable {
   ranks: Record<MbtiType, Record<MbtiType, Rank>>;
 }
 
+/** 場面テンプレートの中で顔をはめ込む位置（テンプレート画像のピクセル座標） */
+export interface FaceSlot {
+  /** だれの顔を入れるか */
+  who: "hero" | "user";
+  /** 顔の中心 */
+  x: number;
+  y: number;
+  /** 顔の半径 */
+  r: number;
+  /** 傾き（度）。省略時 0 */
+  rotate?: number;
+}
+
 export interface ResultText {
   mode: Mode;
   rank: Rank;
   label: string;
   comment: string;
+  /** 場面テンプレートの画像。顔の部分を空けておく */
   sceneImage: string | null;
+  /** sceneImage の中で顔を入れる位置 */
+  faceSlots: FaceSlot[];
 }

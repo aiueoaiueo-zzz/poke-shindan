@@ -1,4 +1,5 @@
 // 診断ロジック。画面（React）とは切り離して、テストできるようにしている
+import { validateSlots } from "./compose";
 import type {
   Axis,
   Choice,
@@ -123,6 +124,7 @@ export function validateData(data: {
       if (n !== 1) problems.push(`結果の文言（${mode}・ランク${rank}）が ${n} 件あります（1 件必要）`);
     }
   }
+  for (const t of texts) problems.push(...validateSlots(t));
 
   return problems;
 }
